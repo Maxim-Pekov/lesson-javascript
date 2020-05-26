@@ -66,6 +66,9 @@ let appdata = {
    },
    chooseIncome: function() {
       let item = prompt("Что принесет дополнительный доход ( Укажите через запятую )", "");
+      while ( isNaN(item) || item == "" || item == null){
+         item = prompt("Что принесет дополнительный доход ( Укажите через запятую )", "");
+      }
       this.income = item.split(", ");
       this.income.push( prompt("Может что то еще принесет доп доход?", ""));
       this.income.sort();
