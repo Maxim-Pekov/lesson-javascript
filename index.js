@@ -65,15 +65,22 @@ let appdata = {
       }
    },
    chooseIncome: function() {
-      let item = prompt("Что принесет дополнительный доход ( Укажите через запятую )", "");
-      while ( isNaN(item) || item == "" || item == null){
-         item = prompt("Что принесет дополнительный доход ( Укажите через запятую )", "");
+      let items = prompt("Что принесет дополнительный доход ( Укажите через запятую )", "");
+      while ( items == "" || items == null){
+         items = prompt("Что принесет дополнительный доход ( Укажите через запятую )", "");
       }
-      this.income = item.split(", ");
+      this.income = items.split(", ");
       this.income.push( prompt("Может что то еще принесет доп доход?", ""));
       this.income.sort();
+      appdata.income.forEach(function (item, i, marr) {
+            console.log("Способы доп. зароботка: " + (i+1) + " " + item );
+      });    
    }
 };
+
+for ( let key in appdata){
+   console.log("Наша программа включает в себя - " + key);
+}
 
 
 
